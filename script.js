@@ -104,8 +104,11 @@ function loop() {
     if (ball.x < 0) {
       tmA += 1
     }
+    if (ball.x > canvas.width) {
+      tmB += 1
+    }
     scoreBoard = tmB + " - " + tmA;
-    context.filltext(scoreBoard, (canvas.width / 2 - grid / 2) - 300 ,(canvas.height / 2 - paddleheight / 2) - 200)
+    context.filltext(scoreBoard, (canvas.width / 2 - grid / 2) - 300 ,(canvas.height / 2 - paddleHeight / 2) - 200)
     ball.resetting = true;
 
     // give some time for the player to recover before launching the ball again
@@ -145,7 +148,7 @@ function loop() {
     context.fillRect(canvas.width / 2 - grid / 2, i, grid, grid);
   }
   scoreBoard = tmB + " - " + tmA;
-  context.filltext(scoreBoard, (canvas.width / 2 - grid  / 2) - 300 ,(canvas.height / 2 -paddleheight / 2) - 200)
+  context.filltext(scoreBoard, (canvas.width / 2 - grid  / 2) - 300 ,(canvas.height / 2 -paddleHeight / 2) - 200)
 }
 
 // listen to keyboard events to move the paddles
