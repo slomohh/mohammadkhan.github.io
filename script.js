@@ -147,8 +147,6 @@ function loop() {
   for (let i = grid; i < canvas.height - grid; i += grid * 2) {
     context.fillRect(canvas.width / 2 - grid / 2, i, grid, grid);
   }
-  scoreBoard = tmB + " - " + tmA;
-  context.filltext(scoreBoard, (canvas.width / 2 - grid  / 2) - 300 ,(canvas.height / 2 -paddleHeight / 2) - 200)
 }
 
 // listen to keyboard events to move the paddles
