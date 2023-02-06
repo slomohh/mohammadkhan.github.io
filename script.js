@@ -10,7 +10,7 @@ var ballSpeed = 5;
 var tmA = 0;
 var tmB = 0;
 var scoreBoard = "";
-context.font = "45px sans-serif";
+context.font = "40px serif";
 
 const leftPaddle = {
   // start in the middle of the game on the left side
