@@ -77,6 +77,12 @@ function loop() {
   else if (rightPaddle.y > maxPaddleY) {
     rightPaddle.y = maxPaddleY;
   }
+  
+  // ScoreBoard
+  context.font ="50px serif";
+  context.filltext(tmA, 250, -50);
+  context.font ="50px serif";
+  context.filltext(tmB, 400, -50);
 
   // draw paddles
   context.fillStyle = 'white';
