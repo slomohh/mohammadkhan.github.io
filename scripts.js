@@ -83,10 +83,10 @@ function loop() {
   }
   
   // ScoreBoard
-  context.font ="50px solid";
-  context.filltext(leftScore, 150, 100);
-  context.font ="50px solid";
-  context.filltext(rightScore, 550, 100);
+  // context.font ="50px solid";
+  // context.filltext(leftScore, 150, 100);
+  // context.font ="50px solid";
+  // context.filltext(rightScore, 550, 100);
 
   // draw paddles
   context.fillStyle = 'white';
