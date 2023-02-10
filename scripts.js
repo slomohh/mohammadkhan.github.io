@@ -4,10 +4,12 @@ const grid = 15;
 const paddleHeight = grid * 5; // 80
 const maxPaddleY = canvas.height - grid - paddleHeight;
 
+var leftScore = 0;
+var rightScore = 0;
 var paddleSpeed = 6;
 var ballSpeed = 5;
-var tmA = 0;
-var tmB = 0;
+
+
 
 
 const leftPaddle = {
@@ -80,9 +82,9 @@ function loop() {
   
   // ScoreBoard
   context.font ="50px solid";
-  context.filltext(tmA, 150, 100);
+  context.filltext(leftScore, 150, 100);
   context.font ="50px solid";
-  context.filltext(tmB, 550, 100);
+  context.filltext(rightScore, 550, 100);
 
   // draw paddles
   context.fillStyle = 'white';
@@ -108,10 +110,10 @@ function loop() {
     ball.resetting = true;
     
     if (ball.x < 0){
-      tmA++;
+      leftScore++;
     }
     if (ball.x > canvas.width){
-      tmB++;
+      rightScore++;
     }
 
     // give some time for the player to recover before launching the ball again
