@@ -4,13 +4,13 @@ const grid = 15;
 const paddleHeight = grid * 5; // 80
 const maxPaddleY = canvas.height - grid - paddleHeight;
 
+var leftScore = 0;
+var rightScore = 0;
 var paddleSpeed = 6;
 var ballSpeed = 5;
-// Augment Side Scoring and Create Score Display
-var tmA = 0;
-var tmB = 0;
-var scoreBoard = "";
-context.font = "45px sans-serif";
+
+
+
 
 const leftPaddle = {
   // start in the middle of the game on the left side
@@ -79,6 +79,12 @@ function loop() {
   else if (rightPaddle.y > maxPaddleY) {
     rightPaddle.y = maxPaddleY;
   }
+  
+  // ScoreBoard
+  context.font ="50px solid";
+  context.filltext(leftScore, 150, 100);
+  context.font ="50px solid";
+  context.filltext(rightScore, 550, 100);
 
   // draw paddles
   context.fillStyle = 'white';
@@ -101,15 +107,14 @@ function loop() {
 
   // reset ball if it goes past paddle (but only if we haven't already done so)
   if ( (ball.x < 0 || ball.x > canvas.width) && !ball.resetting) {
-    if (ball.x < 0) {
-      tmA += 1
-    }
-    if (ball.x > canvas.width) {
-      tmB += 1
-    }
-    scoreBoard = tmB + " - " + tmA;
-    context.filltext(scoreBoard, (canvas.width / 2 - grid / 2) - 300 ,(canvas.height / 2 - paddleHeight / 2) - 200)
     ball.resetting = true;
+    
+    if (ball.x < 0){
+      leftScore++;
+    }
+    if (ball.x > canvas.width){
+      rightScore++;
+    }
 
     // give some time for the player to recover before launching the ball again
     setTimeout(() => {
@@ -147,8 +152,6 @@ function loop() {
   for (let i = grid; i < canvas.height - grid; i += grid * 2) {
     context.fillRect(canvas.width / 2 - grid / 2, i, grid, grid);
   }
-  scoreBoard = tmB + " - " + tmA;
-  context.filltext(scoreBoard, (canvas.width / 2 - grid  / 2) - 300 ,(canvas.height / 2 -paddleHeight / 2) - 200)
 }
 
 // listen to keyboard events to move the paddles
