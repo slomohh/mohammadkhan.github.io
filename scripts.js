@@ -8,7 +8,10 @@ var leftScore = 0;
 var rightScore = 0;
 var paddleSpeed = 6;
 var ballSpeed = 5;
-
+var leftScore = 0;
+var rightScore = 0;
+document.getElementById('tmA').innerHTML = leftScore;
+document.getElementById('tmB').innerHTML = rightScore;
 
 
 
@@ -111,9 +114,11 @@ function loop() {
     
     if (ball.x < 0){
       leftScore++;
+      document.getElementById('tmA').innerHTML = leftScore;
     }
     if (ball.x > canvas.width){
       rightScore++;
+      document.getElementById('tmB').innerHTML = rightScore;
     }
 
     // give some time for the player to recover before launching the ball again
