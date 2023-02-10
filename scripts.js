@@ -79,10 +79,10 @@ function loop() {
   }
   
   // ScoreBoard
-  context.font ="50px serif";
-  context.filltext(tmA, 250, -50);
-  context.font ="50px serif";
-  context.filltext(tmB, 400, -50);
+  context.font ="50px solid";
+  context.filltext(tmA, 150, 100);
+  context.font ="50px solid";
+  context.filltext(tmB, 550, 100);
 
   // draw paddles
   context.fillStyle = 'white';
