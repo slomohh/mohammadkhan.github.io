@@ -6,11 +6,9 @@ const maxPaddleY = canvas.height - grid - paddleHeight;
 
 var paddleSpeed = 6;
 var ballSpeed = 5;
-// Augment Side Scoring and Create Score Display
 var tmA = 0;
 var tmB = 0;
-var scoreBoard = "";
-context.font = "40px serif";
+
 
 const leftPaddle = {
   // start in the middle of the game on the left side
