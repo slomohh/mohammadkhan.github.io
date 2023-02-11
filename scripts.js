@@ -13,8 +13,9 @@ var leftPaddleSpeed = 5.25;
 var ballSpeed = 5;
 var leftScore = 0;
 var rightScore = 0;
-document.getElementById('tmA').innerHTML = leftScore;
-document.getElementById('tmB').innerHTML = rightScore;
+var scores = leftScore + " - " + rightScore;
+document.getElementById('scoreboard').innerHTML = scores;
+
 
 
 
@@ -125,11 +126,13 @@ function loop() {
     
     if (ball.x < 0){
       rightScore++;
-      document.getElementById('tmB').innerHTML = rightScore;
+      scores = leftScore + " - " + rightScore;
+      document.getElementById('scoreboard').innerHTML = scores;
     }
     if (ball.x > canvas.width){
       leftScore++;
-      document.getElementById('tmA').innerHTML = leftScore;
+      scores = leftScore + " - " + rightScore;
+      document.getElementById('scoreboard').innerHTML = scores;
     }
 
     // give some time for the player to recover before launching the ball again
@@ -203,6 +206,7 @@ function handlePopUp() {
     document.getElementById('results').innerHTML = "You Won!";
   }
   showPopUp();
+  // stop ball since game ended
   ball.resetting = true;
 }
 
@@ -210,10 +214,13 @@ function handlePopUp() {
 function rematch() {
   leftScore = 0;
   rightScore = 0;
-  document.getElementById('tmB').innerHTML = rightScore;
-  document.getElementById('tmA').innerHTML = leftScore;
+  scores = leftScore + " - " + rightScore;
+  document.getElementById('scoreboard').innerHTML = scores;
+
+  // toggle off pop-up box
   my_popup.style.display="none";
 
+  // reset ball
   setTimeout(() => {
     ball.resetting = false;
     ball.x = canvas.width / 2;
