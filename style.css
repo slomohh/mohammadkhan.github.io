@@ -9,3 +9,19 @@ html, body {
     align-items: center;
     justify-content: center;
   }
+
+  .my-popup{
+    Width: 850px;
+    Height: 600px;
+    Background: rgb(249, 197, 52);
+    Box-sizing: border-box;
+    Padding: 10px;
+  
+    Position:absolute;
+    top:50%;
+    left:50%;
+    Transform: translate(-50%,-50%);
+  
+    display:none;
+  }
+  

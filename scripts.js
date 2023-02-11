@@ -1,5 +1,6 @@
 const canvas = document.getElementById('game');
 const context = canvas.getContext('2d');
+const my_popup = document.getElementById('my-popup');
 const grid = 15;
 const paddleHeight = grid * 5; // 80
 const maxPaddleY = canvas.height - grid - paddleHeight;
@@ -168,9 +169,8 @@ function loop() {
     context.fillRect(canvas.width / 2 - grid / 2, i, grid, grid);
   }
 
-  // check scores to see if winner is present
-  if (leftScore == 7) {
-
+  if (leftScore == 7 || rightScore == 7) {
+    handlePopUp();
   }
 }
 
@@ -193,6 +193,38 @@ document.addEventListener('keyup', function(e) {
     rightPaddle.dy = 0;
   }
 });
+
+// handling popup when winner is present
+function handlePopUp() {
+  if (leftScore == 7) {
+    document.getElementById('results').innerHTML = "You Lost!";
+  }
+  else {
+    document.getElementById('results').innerHTML = "You Won!";
+  }
+  showPopUp();
+  ball.resetting = true;
+}
+
+// restart game
+function rematch() {
+  leftScore = 0;
+  rightScore = 0;
+  document.getElementById('tmB').innerHTML = rightScore;
+  document.getElementById('tmA').innerHTML = leftScore;
+  my_popup.style.display="none";
+
+  setTimeout(() => {
+    ball.resetting = false;
+    ball.x = canvas.width / 2;
+    ball.y = canvas.height / 2;
+  }, 400);
+}
+
+// function for bringing up showing popup
+function showPopUp(){
+	my_popup.style.display="block";
+}
 
 // start the game
 requestAnimationFrame(loop);
