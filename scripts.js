@@ -9,7 +9,7 @@ const maxPaddleY = canvas.height - grid - paddleHeight;
 var paddleSpeed = 6;
 // making the left paddle speed a little slower 
 // this speed is chosen off of what would make the comp. occasionally fail to keep up
-var leftPaddleSpeed = 5.25;
+var leftPaddleSpeed = 5.27;
 var ballSpeed = 5;
 var leftScore = 0;
 var rightScore = 0;
