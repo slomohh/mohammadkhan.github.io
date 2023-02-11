@@ -123,12 +123,12 @@ function loop() {
     ball.resetting = true;
     
     if (ball.x < 0){
-      leftScore++;
-      document.getElementById('tmA').innerHTML = leftScore;
-    }
-    if (ball.x > canvas.width){
       rightScore++;
       document.getElementById('tmB').innerHTML = rightScore;
+    }
+    if (ball.x > canvas.width){
+      leftScore++;
+      document.getElementById('tmA').innerHTML = leftScore;
     }
 
     // give some time for the player to recover before launching the ball again
@@ -166,6 +166,11 @@ function loop() {
   // draw dotted line down the middle
   for (let i = grid; i < canvas.height - grid; i += grid * 2) {
     context.fillRect(canvas.width / 2 - grid / 2, i, grid, grid);
+  }
+
+  // check scores to see if winner is present
+  if (leftScore == 7) {
+
   }
 }
 
